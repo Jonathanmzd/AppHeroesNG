@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Listado de los temas fundamentales:
+
+- Rutas Hijas
+- Rutas Principales
+- LazyLoad
+- Multiples estilos en la misma SPA
+
+## Link
+https://gist.github.com/Klerith/c72ea2d4192567cb42a0f62e5d271724
