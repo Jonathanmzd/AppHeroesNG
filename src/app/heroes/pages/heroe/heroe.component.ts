@@ -17,3 +17,7 @@ export class HeroeComponent implements OnInit {
   }
 
 }
+
+// Debemos crear en el constructor un:
+// 1. private activateRoute: ActivatedRoute
+// 2. this.activateRoute.params.subscribe(({id}) => console.log (id));
