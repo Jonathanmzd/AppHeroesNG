@@ -14,7 +14,7 @@ export class BuscarComponent implements OnInit {
 
   termino: string = '';
   heroes: Heroe[] = [];
-  heroeSeleccionado!: Heroe;
+  heroeSeleccionado: Heroe | undefined;
 
   constructor( private heroesServices: HeroesService) { }
 
@@ -22,19 +22,27 @@ export class BuscarComponent implements OnInit {
   }
 
   buscando(){
-    this.heroesServices.getSugerencias(this.termino)
+    this.heroesServices.getSugerencias(this.termino.trim())
     .subscribe(heroes => this.heroes = heroes);
   }
 
   opcionSeleccionada(event:MatAutocompleteSelectedEvent){
-    // console.log(event);
-    const heroe: Heroe = event.option.value;
-    // console.log(heroe);
-    this.termino=heroe.superhero;
 
-    // vamos a guardar todos los datos del heroe por ID
-    this.heroesServices.getHeroePorId(heroe.id!)
-    .subscribe(heroe => this.heroeSeleccionado = heroe);
+    if (!event.option.value) {
+      this.heroeSeleccionado = undefined;
+      return;
+    }
+      // console.log(event);
+      const heroe: Heroe = event.option.value;
+      // console.log(heroe);
+      this.termino=heroe.superhero;
+
+      // vamos a guardar todos los datos del heroe por ID
+      this.heroesServices.getHeroePorId(heroe.id!)
+      .subscribe(heroe => this.heroeSeleccionado = heroe);
+    
+
+    
   }
 
 }
